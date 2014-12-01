@@ -1,0 +1,9 @@
+<% @page_title = "業務区分の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "業務区分一覧に戻る", :admin_jobgroups %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @jobgroup] %></p>
+
+<%= render "admin/jobgroups/body" %>

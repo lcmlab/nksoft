@@ -1,0 +1,44 @@
+<table class="attr">
+
+<!-- workreports\_body.html.erb (1) <<< -->
+<% #debugger %>
+
+  <tr>
+    <th>勤務日</th>
+    <td><%= @workreport.workdate %></td>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <td><%= @workreport.employee.name %></td>
+  </tr>
+  <tr>
+    <th>プロジェクト名称</th>
+    <td><%= @workreport.project.prjname %></td>
+  </tr>
+  <tr>
+    <th width="150">勤務場所</th>
+    <td><%= @workreport.jobplace.jobplacename %></td>
+  </tr>
+
+  <tr>
+    <th>職能</th>
+    <td><%= @workreport.grade.gradename %></td>
+  </tr>
+
+  <tr>
+    <th>作業内容</th>
+    <td><%= @workreport.jobitem.jobname %></td>
+  </tr>
+  <tr>
+    <th>勤務開始</th>
+    <td><%= @workreport.timefrom.strftime('%H:%M') %></td>
+  </tr>
+  <tr>
+    <th>終了時刻</th>
+    <td><%= @workreport.timeto.strftime('%H:%M') %></td>
+  </tr>
+  <tr>
+    <th>備考</th>
+    <td><%= @workreport.addcomment.comment %></td>
+  </tr>
+</table>

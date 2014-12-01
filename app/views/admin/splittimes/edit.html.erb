@@ -1,0 +1,10 @@
+<% @page_title = "職能作業名称情報の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "職能作業名称の詳細に戻る", [:admin, @splittime] %></p>
+
+<%= form_for [:admin, @splittime], html: { multipart: true } do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

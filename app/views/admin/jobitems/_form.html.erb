@@ -1,0 +1,12 @@
+<%= render "shared/errors", obj: @jobitem %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :jobname %></th>
+    <td><%= form.text_field :jobname %></td>
+    </tr>
+    <tr>
+    <th><%= form.label :jobgroup_id %></th>
+    <td><%= form.collection_select(:jobgroup_id, @jobgroups, :id, :jgname) %></td>
+  </tr>
+</table>

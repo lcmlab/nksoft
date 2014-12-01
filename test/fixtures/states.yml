@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+office:
+  id: 1
+  stname: 在宅
+
+oue:
+  id: 2
+  stname: 外出
+
+meeting:
+  id: 3
+  stname: 会議中
+
+off:
+  id: 4
+  stname: 休暇
+
+jitaku:
+  id: 5
+  stname: 自宅勤務

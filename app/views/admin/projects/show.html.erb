@@ -1,0 +1,9 @@
+<% @page_title = "プロジェクトの詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "プロジェクト一覧に戻る", :admin_projects %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @project] %></p>
+
+<%= render "admin/projects/body" %>

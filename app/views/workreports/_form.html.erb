@@ -1,0 +1,51 @@
+<!-- workreports/_form.html.erb -->
+<% #debugger %>
+
+<table class="attr">
+  <tr>
+    <div class="field">
+      <%= form.label :workdate %>
+      <%= form.text_field :workdate, :class => 'datepicker' %>
+    </div>
+  </tr>
+
+  <tr> 
+
+    <%= form.hidden_field :employee_id, :value => @workreport.employee_id %>
+
+    <th><%= form.label :project_id %></th>
+    <td><%= form.collection_select(:project_id, @projects, :id, :prjname) %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :grade_id %></th>
+    <td><%= form.collection_select(:grade_id, @grades, :id, :gradename) %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :jobplace_id %></th>
+    <td><%= form.collection_select(:jobplace_id, @jobplaces, :id, :jobplacename) %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :jobitem_id %></th>
+    <td><%= form.collection_select(:jobitem_id, @jobitems, :id, :jobname) %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :timefrom %></th>
+    <th><%= form.time_select :timefrom %>
+  <tr>
+  </tr>
+    <th><%= form.label :timeto %></th>
+    <th><%= form.time_select :timeto %>
+  </tr>
+
+  <tr>
+    <th><%= form.label :addcomment_id %></th>
+    <td><%= form.collection_select(:addcomment_id, @addcomments, :id, :comment) %></td>
+  </tr>
+</table>
+
+<% unless @workreport.new_record? %>
+<p>パスワードを変更しないときは、パスワード入力欄を空にしてください。</p>
+<% end %>

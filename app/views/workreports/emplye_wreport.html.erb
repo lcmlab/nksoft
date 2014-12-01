@@ -1,0 +1,68 @@
+<h2><%= @employee.name %>さんの勤務状況確認表示</h2>
+<% #debugger %>
+
+<p><%= link_to "勤務報告範囲指定画面に戻る", :workreports %></p>
+
+
+<table>
+<tr>
+  <th>勤務日</th><th width="150">プロジェクト名称</th><th>勤務場所</th>
+  <th>職能業種</th>
+  <th>作業内容</th>  <th> 勤務開始</th>   <th>終了時刻</th>
+  <th>勤務時間</th>&nbsp;&nbsp;
+　<th>備考</th>&nbsp;&nbsp;
+  <th>深夜２</th>&nbsp;&nbsp;<th>早朝</th>&nbsp;&nbsp;<th>午前</th>&nbsp;&nbsp;
+  <th>午後</th>&nbsp;&nbsp;<th>残業</th>&nbsp;&nbsp;<th>深夜１</th>
+
+</tr>
+
+<!-- 集計表の行数を調べる  -->
+<% nrows = @emplyewrep.size %>
+
+<% #debugger %>
+
+<% #@emplyewrep.each do |workreport| %>
+<% for i in 0..nrows-1 do %>
+
+<tr>
+
+  <% if i < nrows-1 %>
+     <td nowrep><%= @emplyewrep[i][1] %></td>
+     <td nowrep><%= @emplyewrep[i][2] %></td>
+     <td nowrep><%= @emplyewrep[i][3] %></td>
+     <td nowrep><%= @emplyewrep[i][4] %></td>
+     <td nowrep><%= @emplyewrep[i][5] %></td>
+     <td nowrep><%= (@emplyewrep[i][6]).strftime('%H:%M') %>   ～  </td>
+     <td nowrep><%= (@emplyewrep[i][7]).strftime('%H:%M') %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][8], :precision => 2) %></td>
+     <td nowrep><%= @emplyewrep[i][9] %></td>
+
+     <td nowrep><%= number_with_precision(@emplyewrep[i][10], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][11], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][12], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][13], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][14], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][15], :precision => 2) %></td>
+
+  <% else %>
+     <td><%  %></td>
+     <td><%  %></td>
+     <td><%  %></td>
+     <td><%  %></td>
+     <td><%  %></td>
+     <td><%  %></td>
+     <td nowrep><%= "集計：" %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][8], :precision => 2) %></td>
+     <td><%  %></td>
+
+     <td nowrep><%= number_with_precision(@emplyewrep[i][10], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][11], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][12], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][13], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][14], :precision => 2) %></td>
+     <td nowrep><%= number_with_precision(@emplyewrep[i][15], :precision => 2) %></td>
+  <% end %>
+
+</tr>
+<% end %>
+</table>

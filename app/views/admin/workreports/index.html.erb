@@ -1,0 +1,50 @@
+<% @page_title = "勤務報告集計指示パラメータ表示" %>
+<h1><%= @page_title %></h1>
+
+
+<% #debugger %>
+
+
+<%= link_to "特定勤務者の勤務情報編集へはこちらをクリックしてください。", set_empdsprange_admin_workreport_path(id: @employee) %>
+
+
+<%= form_tag({ :controller => 'workreports',  :action => 'wreport_sammary' }, { :method => 'get' }) do  %>
+
+   <br><br><p> ------------------------------------------------------------------------------------------------------------------ </p>
+
+<p>★　以下の部門別／顧客別勤務情報集計用パラメータを指定してください。</p><br>
+
+   <p>勤務報告の集計範囲（月日）および項目の選択：&nbsp;&nbsp; </p>
+   <p>　　表示開始日：&nbsp;&nbsp;
+
+   <%= select_date Date.today, :start_date => Date.new(2014, 1, 1),
+                 :end_date => Date.new(2014, 1, 1) + 360,
+                 :prefix => :date_S %> &nbsp;&nbsp; から</p>
+
+   <p>　　表示終了日：&nbsp;&nbsp;
+
+   <%= select_date Date.today, :start_date => Date.new(2014, 1, 1),
+                 :end_date => Date.new(2014, 1, 1) + 360,
+                 :prefix => :date_E 
+%>&nbsp;&nbsp; までの範囲の &nbsp;&nbsp;</p>
+
+
+
+   <p>集計対象区分： &nbsp;&nbsp;
+   <%= select_tag('sammarytarget', options_for_select(
+                  { '部門別集計' => 1, '客先別集計' => 2, '個人別集計' => 3 }, 1)) %> &nbsp;&nbsp;
+
+
+
+   <p>　所属部門：
+   <%= select_tag :department, options_from_collection_for_select( @departments, :id, :dpname), { :include_blank => true } %>　（空白はすべての部門）について、　</p>
+
+
+   <p>　顧客：
+   <%= select_tag :client, options_from_collection_for_select( @clients, :id, :clientname), { :include_blank => true } %>　（空白はすべての顧客）について表示します。　</p>
+
+   <p><%= submit_tag '勤務集計の表示', :comfirm => '処理を実行して良いですか？',
+         :disable_with => '処理中・・・' %>
+   </p>
+
+<% end %>

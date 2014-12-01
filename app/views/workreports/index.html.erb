@@ -1,0 +1,82 @@
+<h2><%= @employee.name %>さんの勤務報告一覧表示</h2>
+<% #debugger %>
+
+<% if @leader then %>
+   <p><%= link_to "部門内他の勤務者勤務報告一覧へ", :set_subordsprange_workreports %></p>
+<% end %>
+
+<p><%= link_to "勤務報告の新規登録", new_workreport_path(id: @employee.id) %></p>
+
+<%= form_tag({ :controller => 'workreports',  :action => 'emplye_wreport' }, { :method => 'get' }) do  %>
+
+   <p> ------------------------------------------------------------------------------------------------ </p>
+   <p>勤務報告の表示範囲（月日）および項目の選択：&nbsp;&nbsp; </p>
+
+   <p>　　表示開始日：&nbsp;&nbsp;
+   <%= select_date Date.today, :start_date => Date.new(2014, 1, 1),
+                 :end_date => Date.new(2014, 1, 1) + 360,
+                 :prefix => :date_S %> &nbsp;&nbsp; から</p>
+
+   <p>　　表示終了日：&nbsp;&nbsp;
+   <%= select_date Date.today, :start_date => Date.new(2014, 1, 1),
+                 :end_date => Date.new(2014, 1, 1) + 360,
+                 :prefix => :date_E 
+%>&nbsp;&nbsp; までの範囲の &nbsp;&nbsp;</p>
+
+   <p>　プロジェクト：
+   <%= select_tag :project, options_from_collection_for_select( @projects, :id, :prjname), { :include_blank => true } %>　について、　</p>
+
+   <p>　　　勤務内容：
+   <%= select_tag :jobitem, options_from_collection_for_select( @jobitems, :id, :jobname), { :include_blank => true } %>　について表示します。　</p>
+
+
+   <p><%= submit_tag '勤務報告の表示', :comfirm => '処理を実行して良いですか？',
+         :disable_with => '処理中・・・' %>
+   </p>
+
+   <p> ------------------------------------------------------------------------------------------------ </p>
+
+
+<% end %>
+
+
+
+<table>
+<tr>
+  <th>勤務日</th><th>プロジェクト名称</th><th>勤務場所</th>
+  <th>職能</th>
+  <th>勤務内容</th>  <th> 勤務開始</th>   <th>終了時刻</th>
+  <th>勤務時間</th>
+　<th>備考</th>
+  <th colspan=3 align="center" nowrap >____________ 操　　作 ____________  </th>
+</tr>
+<% @workreports.each do |workreport| %>
+<tr>
+
+<% #debugger %>
+
+  <td><%= workreport.workdate %></td>
+  <td><%= workreport.project.prjname %></td>
+  <td><%= workreport.jobplace.jobplacename %></td>
+  <td><%= workreport.grade.gradename %></td>
+  <td><%= workreport.jobitem.jobname %>  </td>
+
+
+  <td><%= workreport.timefrom.strftime('%H:%M') %>   ～  </td>
+  <td><%= workreport.timeto.strftime('%H:%M') %></td>
+
+
+<% #debugger %>
+
+  <td><%= number_with_precision((workreport.timeto - workreport.timefrom)/ 3600.0, :precision => 2) %></td>
+  <td><%= workreport.addcomment.comment %>　</td>
+
+
+  <td><%= link_to "勤務報告詳細表示", workreport %>　</td>
+  <!-- td><%= link_to "勤務報告詳細表示", workreport %>　</td -->
+  <td><%= link_to "勤務報告編集", [:edit, workreport] %>　</td>
+  <td><%= link_to "削除", workreport, method: :delete,
+            confirm: "本当に削除しますか?"  %></td>
+</tr>
+<% end %>
+</table>

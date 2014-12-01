@@ -1,0 +1,9 @@
+<% @page_title = "状況の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "状況一覧に戻る", :admin_states %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @state] %></p>
+
+<%= render "admin/states/body" %>

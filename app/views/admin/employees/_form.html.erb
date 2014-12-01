@@ -1,0 +1,59 @@
+<%= render "shared/errors", obj: @employee %>
+
+<% #debugger %>
+
+
+<table class="attr">
+<tr>
+  <th><%= form.label :username %></th>
+  <td><%= form.text_field :username, size: 20 %></td>
+</tr>
+<tr>
+  <th><%= form.label :password %></th>
+  <td><%= form.password_field :password, size: 12 %></td>
+</tr>
+<tr>
+    <th><%= form.label :password_confirmation %></th>
+    <td><%= form.password_field :password_confirmation %></td>
+</tr>
+<tr>
+  <th><%= form.label :name %></th>
+  <td><%= form.text_field :name %></td>
+</tr>
+<tr>
+  <th><%= form.label :email %></th>
+  <td><%= form.text_field :email, { :size => 50, :maxlength => 100 } %></td>
+</tr>
+<tr>
+  <th><%= form.label :department_id %></th>
+  <td><%= form.collection_select(:department_id, @departments, :id, :dpname) %></td>
+</tr>
+<tr>
+  <th><%= form.label :state_id %></th>
+  <td><%= form.collection_select(:state_id, @states, :id, :stname) %></td>
+</tr>
+<tr>
+  <th><%= form.label :location %></th>
+  <td><%= form.text_field :location, { :size => 20, :maxlength => 20 } %></td>
+</tr>
+<tr>
+  <th><%= form.label :memo %></th>
+  <td><%= form.text_field :memo, { :size => 50, :maxlength => 100 } %></td>
+</tr>
+<tr>
+  <td>
+    <%= form.check_box :leader %>
+    <%= form.label :leader %>
+  </td>
+</tr>
+<% if controller.kind_of?(Admin::EmployeesController) %>
+   <tr>
+     <th><%= Employee.human_attribute_name(:administrator) %></th>
+     <td>
+       <%= form.check_box :administrator %>
+       <%= form.label :administrator %>
+     </td>
+   </tr>
+<% end %>
+
+</table>

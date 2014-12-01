@@ -1,0 +1,10 @@
+<% @page_title = "プロジェクト情報の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "プロジェクトの詳細に戻る", [:admin, @project] %></p>
+
+<%= form_for [:admin, @project], html: { multipart: true } do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

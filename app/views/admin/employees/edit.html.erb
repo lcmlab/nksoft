@@ -1,0 +1,17 @@
+<% @page_title = "勤務者情報の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<% #debugger %>
+
+
+<p><%= link_to "勤務者情報の詳細に戻る", admin_employee_path( id: @employee.id ) %></p>
+
+<%= form_for [:admin, @employee], html: { multipart: true } do |form| %>
+
+<%=render "form", form: form %>
+
+<p>
+  <%= form.submit %>
+</p>
+<% end %>

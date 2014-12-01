@@ -1,0 +1,46 @@
+<% @page_title = "プロジェクト一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_projects, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "プロジェクトの新規登録", :new_admin_project %></p>
+
+<% if @projects.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;プロジェクト名称</th>
+      <th>&nbsp;&nbsp;顧客名称</th>
+      <th>&nbsp;&nbsp;勤務時間帯モード</th>
+      <th>&nbsp;&nbsp;操作</th>
+   </tr>
+   <% @projects.each do |project| %>
+   <tr>
+      <td><%= project.prjname %></td>
+      <td><%= project.client.clientname %></td>
+      <td><%= project.splittime.timesplitmode %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, project] %>
+         <%= link_to "削除", [:admin, project], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @projects %>
+
+<% else %>
+<p>プロジェクト情報がありません。</p>
+<% end %>

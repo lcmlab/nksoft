@@ -1,0 +1,42 @@
+<% @page_title = "状況一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_states, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "状況の新規登録", :new_admin_state %></p>
+
+<% if @states.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;状況名称</th>
+      <th>&nbsp;&nbsp;操作</th>
+   </tr>
+   <% @states.each do |state| %>
+   <tr>
+      <td><%= state.stname %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, state] %>
+         <%= link_to "削除", [:admin, state], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @states %>
+
+<% else %>
+<p>状況情報がありません。</p>
+<% end %>

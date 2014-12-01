@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+hatsuri:
+  id: 1
+  dpname: 斫工
+
+kajiya:
+  id: 2
+  dpname: 鍛冶工
+
+dokou:
+  id: 3
+  dpname: 土工
+
+zatsu:
+  id: 4
+  dpname: 多能工
+
+kannri:
+  id: 5
+  dpname: 管理部

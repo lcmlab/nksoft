@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  jgname: 斫作業チーム
+
+two:
+  id: 2
+  jgname: 鍛冶作業チーム
+
+three:
+  id: 3
+  jgname: 土工チーム
+
+four:
+  id: 4
+  jgname: 多能工チーム
+
+five:
+  id: 5
+  jgname: 勤怠管理チーム

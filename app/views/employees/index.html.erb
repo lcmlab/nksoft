@@ -1,0 +1,25 @@
+<h2><%= @department.dpname %>部の勤務状況</h2>
+
+<% #debugger %>
+
+<table>
+<tr>
+  <th>名前</th><th>状態</th><th>現在地</th>
+  <th>メモ</th><th>更新年月日</th>
+</tr>
+<% @employees.each do |employee| %>
+<tr>
+  <td>
+    <% if employee.id == session[:user_id] %>
+      <%= link_to employee.name, edit_employee_path(employee) %>
+    <% else %>
+      <%= employee.name %>
+    <% end %>
+  </td>
+  <td><%= employee.state.stname %></td>
+  <td><%= employee.location %></td>
+  <td><%= employee.memo %></td>
+  <td><%= employee.updated_at %></td>
+</tr>
+<% end %>
+</table>

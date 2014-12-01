@@ -1,0 +1,52 @@
+<% @page_title = "勤務者の編集" %>
+
+<h1><%= @page_title %></h1>
+
+<% #debugger %>
+
+
+<!-- p><%= link_to "勤務者の報告一覧に戻る", @employee %></p -->
+<p><%= link_to "勤務者の報告一覧に戻る", {:controller => 'employees', :action => 'index'} %></p>
+
+
+<%= form_for(@employee) do |form| %>
+
+<%=render "form", form: form %>
+
+
+<%
+=begin
+%>
+
+
+<% if @employee.errors.any? %>
+  <u1 class="error_summary">
+  <% @employee.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </u1>
+<% end %> 
+
+<h2><%= @employee.name %>さんの状況更新</h2>
+<p>
+  <%= f.label :state_id %><br />
+  <%= f.collection_select(:state_id, @states, :id, :stname) %>
+</p>
+<p>
+  <%= f.label :location %><br />
+  <%= f.text_field :location, { :size => 15, :maxlength => 30 } %>
+</p>
+<p>
+  <%= f.label :memo %><br />
+  <%= f.text_field :memo, { :size => 50, :maxlength => 100 } %>
+</p>
+
+<%
+=end
+%>
+
+
+<p>
+  <%= form.submit %>
+</p>
+<% end %>

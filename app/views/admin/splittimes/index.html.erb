@@ -1,0 +1,54 @@
+<% @page_title = "勤務時間帯境界モード一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_splittimes, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "勤務時間帯境界モードの新規登録", :new_admin_splittime %></p>
+
+<% if @splittimes.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;勤務時間帯モード名称</th>
+      <th>&nbsp;&nbsp;深夜２業務境界時刻</th>
+      <th>&nbsp;&nbsp;早朝業務境界時刻</th>
+      <th>&nbsp;&nbsp;午前業務境界時</th>
+      <th>&nbsp;&nbsp;午後業務境界時刻</th>
+      <th>&nbsp;&nbsp;残業業務境界時刻</th>
+      <th>&nbsp;&nbsp;深夜１業務境界時刻</th>
+      <th>&nbsp;&nbsp;操　作</th>
+   </tr>
+   <% @splittimes.each do |splittime| %>
+   <tr>
+      <td><%= splittime.timesplitmode %></td>
+      <td><%= splittime.splittime1 %></td>
+      <td><%= splittime.splittime2 %></td>
+      <td><%= splittime.splittime3 %></td>
+      <td><%= splittime.splittime4 %></td>
+      <td><%= splittime.splittime5 %></td>
+      <td><%= splittime.splittime6 %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, splittime] %>
+         <%= link_to "削除", [:admin, splittime], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @splittimes %>
+
+<% else %>
+<p>勤務時間帯境界モード情報がありません。</p>
+<% end %>

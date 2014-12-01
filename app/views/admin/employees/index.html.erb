@@ -1,0 +1,60 @@
+<% @page_title = "勤務者名簿" %>
+<h1><%= @page_title %></h1>
+
+<% #debugger %>
+
+<p><%= link_to "勤務者の新規登録", :new_admin_employee %></p>
+
+<% if @employees.present? %>
+  <table class="list">
+     <tr>
+       <th>&nbsp;&nbsp;ユーザID</th><th>&nbsp;&nbsp;氏　名</th>
+       <th>&nbsp;&nbsp;メール</th><th>所属部門</th>
+       <th>&nbsp;&nbsp;状　態</th><th>&nbsp;&nbsp;現在地</th>
+       <th>&nbsp;&nbsp;メ　モ</th><th>部門長</th>
+       <th>管理者</th><th>&nbsp;&nbsp;操　　作 </th>
+     </tr>
+     <% @employees.each do |employee| %>
+
+
+<%
+=begin
+%>
+     <tr>
+        <td>
+           <% if employee.id == session[:user_id] %>
+              <%= link_to employee.name, edit_employee_path(employee) %>
+           <% else %>
+              <%= employee.name %>
+           <% end %>
+        </td>
+     </tr>
+<%
+=end
+%>
+
+
+     <tr>
+        <td align="left" nowrap><%= employee.username %></td>
+        <!-- td><%= employee.password %></td -->
+        <td align="left" nowrap><%= employee.name %></td>
+        <td align="left" nowrap><%= employee.email %></td>
+        <td align="center" nowrap><%= employee.department.dpname %></td>
+        <td align="left" nowrap><%= employee.state.stname %></td>
+        <td align="left" nowrap><%= employee.location %></td>
+        <td align="left" nowrap><%= employee.memo %></td>
+        <td><%= employee.leader? ? "○" : "－" %></td>
+        <td><%= employee.administrator? ? "○" : "－" %></td>
+        <td align="center" nowrap>
+           <%= link_to "編集", [:edit, :admin, employee] %> | 
+           <%= link_to "削除", [:admin, employee], method: :delete,
+                 confirm: "本当に削除しますか？"  %> 
+        </td>
+     </tr>
+     <% end %>
+  </table>
+<%= will_paginate @employees %>
+
+<% else %>
+<p>勤務者情報がありません。<p>
+<% end %>

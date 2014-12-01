@@ -1,0 +1,44 @@
+<% @page_title = "業務項目一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_jobitems, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "業務項目の新規登録", :new_admin_jobitem %></p>
+
+<% if @jobitems.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;業務項目名称</th>
+      <th>&nbsp;&nbsp;所属部門名称</th>
+      <th>&nbsp;&nbsp;操　作</th>
+   </tr>
+   <% @jobitems.each do |jobitem| %>
+   <tr>
+      <td><%= jobitem.jobname %></td>
+      <td><%= jobitem.jobgroup.jgname %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, jobitem] %>
+         <%= link_to "削除", [:admin, jobitem], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @jobitems %>
+
+<% else %>
+<p>業務項目情報がありません。</p>
+<% end %>

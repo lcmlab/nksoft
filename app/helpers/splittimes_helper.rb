@@ -1,0 +1,2 @@
+module SplittimesHelper
+end

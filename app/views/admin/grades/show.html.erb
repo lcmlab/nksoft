@@ -1,0 +1,9 @@
+<% @page_title = "職能作業名称の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "職能作業名称一覧に戻る", :admin_grades %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @grade] %></p>
+
+<%= render "admin/grades/body" %>

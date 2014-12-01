@@ -1,0 +1,43 @@
+<table class="attr">
+
+  <tr>
+    <th width="150">ユーザID</th>
+    <td><%= @employee.username %></td>
+  </tr>
+  <tr>
+    <th>パスワード</th>
+    <td><%= @employee.password %></td>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <td><%= @employee.name %></td>
+  </tr>
+  <tr>
+    <th>メール</th>
+    <td><%= @employee.email %></td>
+  </tr>
+  <tr>
+    <th>所属部門</th>
+    <td><%= @employee.department.dpname %></td>
+  </tr>
+  <tr>
+    <th>状態</th>
+    <td><%= @employee.state.stname %></td>
+  </tr>
+  <tr>
+    <th>現在地</th>
+    <td><%= @employee.location %></td>
+  </tr>
+  <tr>
+    <th>メモ</th>
+    <td><%= @employee.memo %></td>
+  </tr>
+  <tr>
+    <th>部門長</th>
+    <td><%= @employee.leader? ? "○" : "－" %></td>
+  </tr>
+  <tr>
+    <th>管理者</th>
+    <td><%= @employee.administrator? ? "○" : "－" %></td>
+  </tr>
+</table>

@@ -1,0 +1,106 @@
+<% @page_title = "部下勤務情報一括入力情報確認画面（勤務情報入力確認画面）" %>
+<h1><%= @page_title %></h1>
+
+<h2><%= @empleader.name %>さんの部下勤務情報管理</h2>
+
+<% debugger %>
+
+<%= link_to "リーダの勤務報告一覧表示に戻る", :workreports %>
+
+
+<%= form_tag({ :controller => 'workreports',  :action => 'subord_bulkcreate' }, { :method => 'put' }) do  %>
+
+   <p> ------------------------------------------------------------------------------------------------ </p>
+   <p>勤務報告の集計範囲（月日）および項目の確認：&nbsp;&nbsp; </p>
+
+   <p>　　表示開始日：&nbsp;&nbsp;
+   <%= @regist_stdate %>
+   <%= hidden_field_tag 'stdate', @regist_stdate %> &nbsp;&nbsp; から</p>
+
+   <p>　　表示終了日：&nbsp;&nbsp;
+   <%= @regist_enddate %>
+   <%= hidden_field_tag 'enddate', @regist_enddate %>&nbsp;&nbsp; までの範囲で</p>
+
+
+   <p>一括登録対象勤務者は以下の通りです。：
+
+   <table border="1">
+      <tr>
+         <th>一括入力対象者氏名</th>
+      </tr>
+
+      <% numemp = @emplist.length %>
+      <% for i in 0..numemp - 1 %>
+         <% if @emplist[i][0] != nil %>
+            <tr>
+               <td>
+                  <%= hidden_field_tag 'employee[]', @emplist[i][0] %>
+                  <%= @emplist[i][1] %>
+               </td>
+            </tr>
+         <% end %>
+      <% end %>
+
+   </table>
+
+   <table border="1">
+      <tr> 
+         <th>プロジェクト</th>
+         <td><%= @regist_project.prjname %>
+             <%= hidden_field_tag 'project_id', @regist_project.id %>
+         </td>
+      </tr>
+
+      <tr>
+         <th>職種</th>
+         <td><%= @regist_grade.gradename %>
+             <%= hidden_field_tag 'grade_id', @regist_grade.id %>
+         </td>
+      </tr>
+
+      <tr>
+         <th>勤務場所</th>
+         <td><%= @regist_jobplace.jobplacename %>
+             <%= hidden_field_tag 'jobplace_id', @regist_jobplace.id %>
+         </td>
+      </tr>
+
+      <tr>
+         <th>勤務内容</th>
+         <td><%= @regist_jobitem.jobname %>
+             <%= hidden_field_tag 'jobitem_id', @regist_jobitem.id %>
+         </td>
+      </tr>
+
+      <tr>
+         <th>勤務開始時刻</th>
+         <td><%= @regist_timefrom.strftime('%H:%M') %>
+             <%= hidden_field_tag 'timefrom', @regist_timefrom %>
+         </td>
+      <tr>
+
+      </tr>
+         <th>勤務終了時刻</th>
+         <td><%= @regist_timeto.strftime('%H:%M') %>
+             <%= hidden_field_tag 'timeto', @regist_timeto %>
+         </td>
+      </tr>
+
+      <tr>
+         <th>備考</th>
+         <td><%= @regist_addcomment.comment %>
+             <%= hidden_field_tag 'addcomment_id', @regist_addcomment.id %>
+         </td>
+      </tr>
+
+   </table>
+
+
+
+</p>
+
+
+   <p><%= submit_tag '部下勤務情報の一括登録', :comfirm => '処理を実行して良いですか？',
+         :disable_with => '処理中・・・' %>
+   </p>
+<% end %>

@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  jobplacename: Ｙ駅前作業所（１）
+
+two:
+  id: 2
+  jobplacename: Ｙ駅前現場（２）
+
+three:
+  id: 3
+  jobplacename: Ｘプラザ作業所（１）
+
+four:
+  id: 4
+  jobplacename: Ｘプラザ現場（２）
+
+five:
+  id: 5
+  jobplacename: Ｚ本社ビル新築工事作業所（１）
+
+six:
+  id: 6
+  jobplacename: Ｚ本社ビル新築工事現場（２）
+
+seven:
+  id: 7
+  jobplacename: ＤＫマンション新築工事作業所（１）
+
+eight:
+  id: 8
+  jobplacename: ＤＫマンション新築工事現場（２）
+
+nine:
+  id: 9
+  jobplacename: Ｆ港湾工事作業所（１）
+
+ten:
+  id: 10
+  jobplacename: Ｆ港湾工事現場（２）

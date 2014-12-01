@@ -1,0 +1,16 @@
+<%= render "shared/errors", obj: @project %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :prjname %></th>
+    <td><%= form.text_field :prjname %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :client_id %></th>
+    <td><%= form.collection_select(:client_id, @clients, :id, :clientname) %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :splittime_id %></th>
+    <td><%= form.collection_select(:splittime_id, @splittimes, :id, :timesplitmode) %></td>
+  </tr>
+</table>

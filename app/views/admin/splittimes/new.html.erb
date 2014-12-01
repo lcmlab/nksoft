@@ -1,0 +1,8 @@
+<% @page_title = "勤務時間帯境界モードの新規登録" %>
+
+<h1><%= @page_title %></h1>
+
+<%= form_for [:admin, @splittime], html: { multipart: true } do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

@@ -1,0 +1,42 @@
+<% @page_title = "勤務場所一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_jobplaces, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "勤務場所の新規登録", :new_admin_jobplace %></p>
+
+<% if @jobplaces.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;勤務場所名称</th>
+      <th>操　作</th>
+   </tr>
+   <% @jobplaces.each do |jobplace| %>
+   <tr>
+      <td><%= jobplace.jobplacename %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, jobplace] %>
+         <%= link_to "削除", [:admin, jobplace], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @jobplaces %>
+
+<% else %>
+<p>勤務場所情報がありません。</p>
+<% end %>

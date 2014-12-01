@@ -1,0 +1,8 @@
+<% @page_title = "勤務場所の新規登録" %>
+
+<h1><%= @page_title %></h1>
+
+<%= form_for [:admin, @jobplace], html: { multipart: true } do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

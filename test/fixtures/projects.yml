@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  prjname: Ｙ駅前プロジェクト
+  client_id: 1
+
+two:
+  id: 2
+  prjname: Ｘプラザ
+  client_id: 2
+
+trhee:
+  id: 3
+  prjname: Ｚ本社ビル新築工事
+  client_id: 3
+
+four:
+  id: 4
+  prjname: ＤＫマンション新築工事
+  client_id: 4
+
+five:
+  id: 5
+  prjname: Ｆ港湾工事
+  client_id: 5

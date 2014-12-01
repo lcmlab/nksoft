@@ -1,0 +1,15 @@
+<% @page_title = "勤務情報の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<h2><%= @employee.name  %> さんの勤務報告情報詳細表示</h2>
+
+
+<!-- workreports\show.html.erb (1) <<< -->
+<% #debugger %>
+
+  <p><%= link_to "勤務者勤務情報一覧表示に戻る", emp_workreport_admin_workreports_path(employee: @employee.id, fromflg: "show" ) %></p>
+  <p><%= link_to "勤務報告編集", [:edit, :admin, @workreport] %></p>
+
+
+<%= render "body" %>

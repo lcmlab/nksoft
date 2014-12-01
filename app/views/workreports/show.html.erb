@@ -1,0 +1,19 @@
+
+<% if @leader then %>
+   <h2><%= @empleader.name %>さんの部下（<%= @employee_name %>）さんの勤務報告一覧表示</h2>
+<% else %>
+   <h2><%= @employee.name  %> さんの勤務報告情報詳細表示</h2>
+<% end %>
+
+
+
+<!-- buildings\show.html.erb (1) <<< -->
+<% #debugger %>
+
+  <p><%= link_to "部下の勤務報告一覧表示に戻る", subord_workreport_workreports_path(employee: @employee.id, fromflg: "show" ) %></p>
+
+  <p><%= link_to "勤務報告一覧表示に戻る", :workreports %></p>
+  <p><%= link_to "勤務報告編集", [:edit, @workreport] %></p>
+
+
+<%= render "body" %>

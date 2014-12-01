@@ -1,0 +1,159 @@
+                                              20140506
+>db/migrate/DB テーブル定義リスト
+
+class CreateDepartments < ActiveRecord::Migration
+  def change
+    create_table :departments do |t|
+      t.string :dpname
+
+      t.timestamps
+    end
+  end
+end
+
+
+
+class CreateStates < ActiveRecord::Migration
+  def change
+    create_table :states do |t|
+      t.string :stname
+
+      t.timestamps
+    end
+  end
+end
+
+
+
+class CreateEmployees < ActiveRecord::Migration
+  def change
+    create_table :employees do |t|
+      t.string :username
+      t.string :password
+      t.string :name
+      t.string :email
+      t.references :department
+      t.references :state
+      t.string :location
+      t.string :memo
+      t.boolean :leader
+
+      t.timestamps
+    end
+    add_index :employees, :department_id
+    add_index :employees, :state_id
+  end
+end
+
+
+
+class CreateProjects < ActiveRecord::Migration
+  def change
+    create_table :projects do |t|
+      t.string :prjname
+      t.references :client
+
+      t.timestamps
+    end
+    add_index :projects, :client_id
+  end
+end
+
+
+
+class CreateCrients < ActiveRecord::Migration
+  def change
+    create_table :crients do |t|
+      t.string :crientname
+
+      t.timestamps
+    end
+  end
+end
+
+
+
+class CreateJobgroups < ActiveRecord::Migration
+  def change
+    create_table :jobgroups do |t|
+      t.string :jgname
+
+      t.timestamps
+    end
+  end
+end
+
+
+
+class CreateJobitems < ActiveRecord::Migration
+  def change
+    create_table :jobitems do |t|
+      t.string :jobname
+      t.references :jobgroup
+
+      t.timestamps
+    end
+    add_index :jobitems, :jobgroup_id
+  end
+end
+
+
+
+class CreateJobplaces < ActiveRecord::Migration
+  def change
+    create_table :jobplaces do |t|
+      t.string :jobplacename
+
+      t.timestamps
+    end
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class CreateWorkreports < ActiveRecord::Migration
+  def change
+    create_table :workreports do |t|
+      t.references :employee
+      t.references :project
+      t.references :jobplace
+      t.references :jobitem
+      t.date :workdate
+      t.datetime :timefrom
+      t.datetime :timeto
+      t.references :addcomment
+
+      t.timestamps
+    end
+    add_index :workreports, :employee_id
+    add_index :workreports, :project_id
+    add_index :workreports, :jobplace_id
+    add_index :workreports, :jobitem_id
+    add_index :workreports, :addcomment_id
+  end
+end
+
+
+
+class CreateAddcomments < ActiveRecord::Migration
+  def change
+    create_table :addcomments do |t|
+      t.string :comment
+
+      t.timestamps
+    end
+  end
+end

@@ -1,0 +1,98 @@
+                                   20140506
+
+ >app/models/Model’è‹`ƒŠƒXƒg
+
+class Department < ActiveRecord::Base
+
+  has_many :employees
+
+  attr_accessible :dpname
+
+
+  validates :dpname, :presence => true
+end
+
+
+
+class Employee < ActiveRecord::Base
+  belongs_to :department
+  belongs_to :state
+  has_many :workreports
+
+  attr_accessible :email, :leader, :location, :memo, :name, :password, :username, :state_id, :department_id
+
+  validates :username, :presence => true
+  validates :password, :presence => true
+  validates :state_id, :presence => true
+  validates :location, :presence => true, :length => { :maximum => 20}
+  validates :memo, :length => { :maximum => 100}
+end
+
+
+
+class Project < ActiveRecord::Base
+  belongs_to :client
+  has_many :workreports
+
+  attr_accessible :prjname
+end
+
+
+
+class Client < ActiveRecord::Base
+
+  has_many :projects
+
+  attr_accessible :clientname
+end
+
+
+
+class Jobgroup < ActiveRecord::Base
+
+  has_many :jobitems
+
+  attr_accessible :jgname
+end
+
+
+
+
+
+
+class Jobitem < ActiveRecord::Base
+  belongs_to :jobgroup
+  has_many :workreport
+
+  attr_accessible :jobname
+end
+
+
+
+class Jobplace < ActiveRecord::Base
+
+  has_many:workreport
+
+  attr_accessible :jobplacename
+end
+
+
+
+class Workreport < ActiveRecord::Base
+  belongs_to :employee
+  belongs_to :project
+  belongs_to :jobplace
+  belongs_to :jobitem
+
+  attr_accessible :comment, :timefrom, :timeto, :workdate
+end
+
+
+
+class Addcomment < ActiveRecord::Base
+
+  has_many :workreports
+
+  attr_accessible :comment
+
+end

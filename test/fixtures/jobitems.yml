@@ -1,0 +1,63 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  jobname: 床斫り
+  jobgroup_id: 1
+
+two:
+  id: 2
+  jobname: 壁斫り
+  jobgroup_id: 1
+
+three:
+  id: 3
+  jobname: 天井斫り
+  jobgroup_id: 1
+
+four:
+  id: 4
+  jobname: ガス切断
+  jobgroup_id: 2
+
+five:
+  id: 5
+  jobname: 電気溶接
+  jobgroup_id: 2
+
+six:
+  id: 6
+  jobname: ガス溶接
+  jobgroup_id: 2
+
+seven:
+  id: 7
+  jobname: コンクリート打設
+  jobgroup_id: 3
+
+eight:
+  id: 8
+  jobname: 資材運搬
+  jobgroup_id: 3
+
+nine:
+  id: 9
+  jobname: 清掃・片付
+  jobgroup_id: 4
+
+ten:
+  id: 10
+  jobname: 警備・交通整理
+  jobgroup_id: 4
+
+eleven:
+  id: 11
+  jobname: その他雑作業
+  jobgroup_id: 4
+
+twelve:
+  id: 12
+  jobname: 勤怠管理作業
+  jobgroup_id: 5
+
+

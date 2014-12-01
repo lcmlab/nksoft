@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title><%= page_title %></title>
+  <!-- title>勤務情報アプリケーション</title -->
+
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+<div id="container">
+  <div id="header">
+<%= render "shared/header" %>
+  </div>
+
+  <div id= "content">
+<% if flash.notice %>
+<p class="notice"><%= flash.notice %></p>
+<% end %>
+
+<%= yield %>
+  </div>
+
+
+<%
+=begin # -------------------------------------
+%>
+
+  <div id= "sidebar">
+<%= render "shared/sidebar" %>
+  </div>
+
+<%
+=end # =======================================
+%>
+
+
+  <div id= "footer">
+<%= render "shared/footer" %>
+  </div>
+</div>
+
+
+<%
+=begin # -------------------------------------
+%>
+
+
+<div class="page">
+  <div id="header">
+    <h1>勤務情報アプリケーション</h1>
+  </div>
+  <div id="main">
+
+    <%= yield %>
+
+    <div id="footer">
+      <hr />
+      Copyright by SAKAGUCHI,Akiyoshi, 2014-05-02
+    </div>
+  </div>
+</div>
+
+
+<%
+=end # =====================================
+%>
+
+
+</body>
+</html>

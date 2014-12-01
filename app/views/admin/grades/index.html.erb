@@ -1,0 +1,48 @@
+<% @page_title = "職能作業名称一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_grades, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "職能作業名称の新規登録", :new_admin_grade %></p>
+
+<% if @grades.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;職能作業名称名称</th>
+      <th>&nbsp;&nbsp;給与時間単価（円）</th>
+      <th>&nbsp;&nbsp;請求時間単価（円）</th>
+      <th>&nbsp;&nbsp;休日割増率</th>
+      <th>操　作</th>
+   </tr>
+   <% @grades.each do |grade| %>
+   <tr>
+      <td><%= grade.gradename %></td>
+      <td><%= grade.unitpayment %></td>
+      <td><%= grade.unitdemand %></td>
+      <td><%= grade.holidayschg %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, grade] %>
+         <%= link_to "削除", [:admin, grade], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @grades %>
+
+<% else %>
+<p>職能作業名称情報がありません。</p>
+<% end %>

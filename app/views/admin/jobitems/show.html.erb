@@ -1,0 +1,9 @@
+<% @page_title = "業務項目の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "業務項目一覧に戻る", :admin_jobitems %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @jobitem] %></p>
+
+<%= render "admin/jobitems/body" %>

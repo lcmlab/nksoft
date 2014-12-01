@@ -1,0 +1,9 @@
+<% @page_title = "勤務場所の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "勤務場所一覧に戻る", :admin_jobplaces %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @jobplace] %></p>
+
+<%= render "admin/jobplaces/body" %>

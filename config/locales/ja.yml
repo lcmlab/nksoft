@@ -1,0 +1,73 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ会員情報
+    attributes:
+      employee:
+        username: ユーザＩＤ
+        password: パスワード
+        name: 氏名
+        email: メールアドレス
+        department_id: 部門名
+        state_id: 状況
+        location: 現在場所
+        memo: メモ
+        leader: 所属長
+        administrator: システム管理者
+        password_confirmation: パスワードの確認
+      state:
+        stname: 状況種別
+      department:
+        dpname: 部門名
+      project:
+        prjname: プロジェクト名称
+        client_id: 顧客名称
+        splittime_id: 勤務時間帯境界モード名称
+      client:
+        clientname: 顧客名称
+      jobgroup:
+        jgname: 業務区分名称
+      jobitem:
+        jobname: 業務項目名称
+        jobgroup_id: 所属部門名称
+      jobplace:
+        jobplacename: 勤務場所名称
+      workreport:
+        employee_id: 勤務者氏名
+        project_id: プロジェクト名称
+        grade_id: 職能作業名称
+        jobplace_id: 勤務場所
+        jobitem_id: 作業内容
+        workdate: 勤務日
+        timefrom: 勤務開始
+        timeto: 終了時刻
+        addcomment_id: 備考
+      addcomment:
+        comment: 備考名称
+      grade:
+        gradename: 職能作業名称
+        unitpayment: 給与時間単価（円／時間）
+        unitdemand: 請求時間単価（円／時間）
+        holidayschg: 休日割増率
+      splittime:
+        timesplitmode: 勤務時間帯境界モード名称
+        splittime1: 深夜２業務境界時刻
+        splittime2: 早朝業務境界時刻
+        splittime3: 午前業務境界時
+        splittime4: 午後業務境界時刻
+        splittime5: 残業業務境界時刻
+        splittime6: 深夜１業務境界時刻
+
+    errors:
+      messages:
+        invalid_user_name: "は半角英数字で入力してください（_も使えます）。"
+        expired_at_too_old: "は掲載開始日より新しい日時にしてください。"
+        too_big_image: "が大きすぎます（最大64KB）。"
+        too_big_bimage: "が大きすぎます（最大92KB）。"
+        invalid_image: "の形式が違います（JPEG、GIF、PNGのどれかにしてください）。"
+        invalid_bimage: "の形式が違います（JPEG、GIF、PNGのどれかにしてください）。"
+        invalid_building_name: "は半角英数字で入力してください（_も使えます）。"
+
+  will_paginate:
+    previous_label: "前"
+    next_label: "次"

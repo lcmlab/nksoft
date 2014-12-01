@@ -1,0 +1,242 @@
+                                     20140506
+
+> test/fixtures/.ymlƒf[ƒ^
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+hatsuri:
+  id: 1
+  dpname: ÏH
+
+kajiya:
+  id: 2
+  dpname: ’b–èH
+
+dokou:
+  id: 3
+  dpname: “yH
+
+zatsu:
+  id: 4
+  dpname: ‘½”\H
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  prjname: ‚x‰w‘OƒvƒƒWƒFƒNƒg
+  client_id: 1
+
+two:
+  id: 2
+  prjname: ‚wƒvƒ‰ƒU
+  client_id: 2
+
+trhee:
+  id: 3
+  prjname: ‚y–{Ğƒrƒ‹V’zH–
+  client_id: 3
+
+four:
+  id: 4
+  prjname: ‚c‚jƒ}ƒ“ƒVƒ‡ƒ“V’zH–
+  client_id: 4
+
+five:
+  id: 5
+  prjname: ‚e`˜pH–
+  client_id: 5
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  clientname: ¬—Ñ‹»‹Æ
+
+two:
+  id: 2
+  clientname: ´…H–±“X
+
+trhee:
+  id: 3
+  clientname: “c“‡Œšİ
+
+four:
+  id: 4
+  clientname: ’|“àH–±“X
+
+five:
+  id: 5
+  clientname: ’‰´Œšİ
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  jgname: Ïì‹Æƒ`[ƒ€
+
+two:
+  id: 2
+  jgname: ’b–èì‹Æƒ`[ƒ€
+
+three:
+  id: 3
+  jgname: “yHƒ`[ƒ€
+
+four:
+  id: 4
+  jgname: ‘½”\Hƒ`[ƒ€
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  jobname: °Ï‚è
+  jobgroup_id: 1
+
+two:
+  id: 2
+  jobname: •ÇÏ‚è
+  jobgroup_id: 1
+
+three:
+  id: 3
+  jobname: “VˆäÏ‚è
+  jobgroup_id: 1
+
+four:
+  id: 4
+  jobname: ƒKƒXØ’f
+  jobgroup_id: 2
+
+five:
+  id: 5
+  jobname: “d‹C—nÚ
+  jobgroup_id: 2
+
+six:
+  id: 6
+  jobname: ƒKƒX—nÚ
+  jobgroup_id: 2
+
+seven:
+  id: 7
+  jobname: ƒRƒ“ƒNƒŠ[ƒg‘Åİ
+  jobgroup_id: 3
+
+eight:
+  id: 8
+  jobname: ‘Ş‰^”À
+  jobgroup_id: 3
+
+nine:
+  id: 9
+  jobname: ´‘|E•Ğ•t
+  jobgroup_id: 4
+
+ten:
+  id: 10
+  jobname: Œx”õEŒğ’Ê®—
+  jobgroup_id: 4
+
+eleven:
+  id: 10
+  jobname: ‚»‚Ì‘¼Gì‹Æ
+  jobgroup_id: 4
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  jobplacename: ‚x‰w‘Oì‹ÆŠi‚Pj
+
+two:
+  id: 2
+  jobplacename: ‚x‰w‘OŒ»êi‚Qj
+
+three:
+  id: 3
+  jobplacename: ‚wƒvƒ‰ƒUì‹ÆŠi‚Pj
+
+four:
+  id: 4
+  jobplacename: ‚wƒvƒ‰ƒUŒ»êi‚Qj
+
+five:
+  id: 5
+  jobplacename: ‚y–{Ğƒrƒ‹V’zH–ì‹ÆŠi‚Pj
+
+six:
+  id: 6
+  jobplacename: ‚y–{Ğƒrƒ‹V’zH–Œ»êi‚Qj
+
+seven:
+  id: 7
+  jobplacename: ‚c‚jƒ}ƒ“ƒVƒ‡ƒ“V’zH–ì‹ÆŠi‚Pj
+
+eight:
+  id: 8
+  jobplacename: ‚c‚jƒ}ƒ“ƒVƒ‡ƒ“V’zH–Œ»êi‚Qj
+
+nine:
+  id: 9
+  jobplacename: ‚e`˜pH–ì‹ÆŠi‚Pj
+
+ten:
+  id: 10
+  jobplacename: ‚e`˜pH–Œ»êi‚Qj
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  employee_id: 1
+  project_id: 
+  jobitem_id: 
+  workdate: 2014-05-05
+  timefrom: 2014-05-05 22:06:38
+  timeto: 2014-05-05 22:06:38
+  addcomment_id: MyString
+
+two:
+  id: 1
+  employee_id: 
+  project_id: 
+  jobitem_id: 
+  workdate: 2014-05-05
+  timefrom: 2014-05-05 22:06:38
+  timeto: 2014-05-05 22:06:38
+  addcomment_id: MyString
+
+
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  comment: ’Êí‹Î–±
+
+two:
+  id: 2
+  comment: c‹Æ
+
+three:
+  id: 3
+  comment: [–éc‹Æ
+
+four:
+  id: 4
+  comment: ‹x“úo‹Î

@@ -1,0 +1,9 @@
+<% @page_title = "所属組織の詳細" %>
+
+<h1><%= @page_title %></h1>
+
+<p><%= link_to "所属組織一覧に戻る", :admin_departments %></p>
+
+<p><%= link_to "編集", [:edit, :admin, @department] %></p>
+
+<%= render "admin/departments/body" %>

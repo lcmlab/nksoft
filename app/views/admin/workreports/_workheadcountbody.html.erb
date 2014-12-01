@@ -1,0 +1,101 @@
+<% @page_title = "出面集計表の表示" %>
+<h1><%= @page_title %></h1>
+
+<% #debugger %>
+
+<p><%= link_to "勤務報告範囲指定画面に戻る", :admin_workreports %></p>
+
+
+<h2> 出面集計表　（但し、
+<%= "#{@hcstdatengp}　～　#{@hcenddatengp}" %>
+までの期間）</h2>
+
+<p> 注：（出面単位：人日）は、１日の総勤務時間を１日の基本勤務時間に換算した（総勤務時間÷基本勤務時間）の集計値が示されています。</p>
+
+   <!-- 出面集計表格納テーブルのサイズ確認 -->
+   <% columns = @workheadcount[0].length %>
+   <% rows = @workheadcount.length %>
+
+<table border=1 cellpadding=4 cellspacing=1>
+
+
+<!-- :::::::::::::::::::::::::::: -->
+<!-- 出面集計表のタイトル行の表示 -->
+<!-- :::::::::::::::::::::::::::: -->
+
+   <tr bgcolor="#cee;"> 
+
+      <th bgcolor="gold" align="center" nowrap>
+         <%= @workheadcount[0][0] %></th>
+
+      <th bgcolor="floralwhite" align="center" nowrap>
+         <%= @workheadcount[0][1] %></th>
+
+      <th bgcolor="palegreen" align="center" nowrap>
+         <%= @workheadcount[0][2] %></th>
+
+<!-- 日付タイトルカラム行の表示 -->
+      <% for j in 3..columns - 2 %>
+         <!-- 日付の曜日を調べ、セルバックカラーを設定する -->
+         <% coldate = @hcstdate + (j - 3) %>
+
+
+         <% if coldate.wday == 0 %>
+            <!-- % bgclr = "red" % -->
+            <th bgcolor = "red" align="center" >
+
+         <% elsif coldate.wday == 6 %>
+            <!-- % bgclr = "cyan" % -->
+            <th bgcolor = "cyan" align="center" >
+
+         <% else %>
+            <!-- % bgclr = "yellow" % -->
+            <th bgcolor = "yellow" align="center" >
+
+         <% end %>
+
+<% #debugger %>
+
+         <!-- td bgcolor = bgclr align="center"  -->
+            <%= @workheadcount[0][j] %></th>
+      <% end %>
+
+
+      <!-- 出面小計タイトル列（行末尾セル）の表示 -->
+      <th bgcolor="paleturquoise" align="center" nowrap>
+      <%= @workheadcount[0][columns - 1] %></th>
+   </tr>
+
+
+
+<!-- :::::::::::::::::::::: -->
+<!-- 出面集計表ボデーの表示 -->
+<!-- :::::::::::::::::::::: -->
+
+   <% for i in 1..rows - 1 %>
+      <tr bgcolor="#cee;">
+         <!-- 集計区分タイトル -->
+         <td bgcolor="gold" align="center" nowrap>
+            <%= @workheadcount[i][0] %></td>
+
+         <td bgcolor="floralwhite" align="center" nowrap>
+            <%= @workheadcount[i][1] %></td>
+
+         <td bgcolor="palegreen" align="center" nowrap>
+            <%= @workheadcount[i][2] %></td>
+
+
+         <!-- 出面集計値 -->
+         <% for j in 3..columns - 2 %>
+            <td bgcolor="lightcyan" align="center" nowrap>
+               <%= number_with_precision(@workheadcount[i][j], :precision => 1) %></td>
+
+         <% end %>
+
+         <!-- 行末尾の行小計値 -->
+         <td bgcolor="paleturquoise" align="center" nowrap>
+            <%= number_with_precision(@workheadcount[i][columns - 1], :precision => 2) %></td>
+
+      </tr>
+   <% end %>
+</table>

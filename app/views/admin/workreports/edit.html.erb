@@ -1,0 +1,20 @@
+<h2><%= @employee.name  %> さんの勤務報告情報の更新</h2>
+
+<p><%= link_to "勤務報告の詳細に戻る", [:admin, @workreport] %></p>
+
+<% #debugger %>
+
+
+<% if @workreport.errors.any? %>
+  <u1 class="error_summary">
+  <% @workreport.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </u1>
+<% end %> 
+
+
+<%= form_for [:admin, @workreport] do |form| %>
+  <%= render "form", form: form %>
+  <p><%= form.submit %></p>
+<% end %>

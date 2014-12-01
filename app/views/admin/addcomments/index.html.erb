@@ -1,0 +1,42 @@
+<% @page_title = "備考一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<%
+=begin
+%>
+
+<%= form_tag :search_addcomments, method: :get do %>
+<p><%= text_field_tag "q", params[:q] %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%
+=end
+%>
+
+
+<p><%= link_to "備考の新規登録", :new_admin_addcomment %></p>
+
+<% if @addcomments.present? %>
+<table class="list">
+   <tr>
+      <th>&nbsp;&nbsp;備考名称</th>
+      <th>&nbsp;&nbsp;操　作</th>
+   </tr>
+   <% @addcomments.each do |addcomment| %>
+   <tr>
+      <td><%= addcomment.comment %></td>
+      <td>
+         <%= link_to "編集", [:edit, :admin, addcomment] %>
+         <%= link_to "削除", [:admin, addcomment], method: :delete,
+               confirm: "本当に削除しますか？" %>
+      </td>
+   </tr>
+   <% end %>
+</table>
+<%= will_paginate @addcomments %>
+
+<% else %>
+<p>備考情報がありません。</p>
+<% end %>

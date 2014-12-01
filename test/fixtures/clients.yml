@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  clientname: 小林興業
+
+two:
+  id: 2
+  clientname: 清水工務店
+
+trhee:
+  id: 3
+  clientname: 田島建設
+
+four:
+  id: 4
+  clientname: 竹内工務店
+
+five:
+  id: 5
+  clientname: 忠清建設

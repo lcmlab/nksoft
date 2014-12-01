@@ -1,0 +1,97 @@
+                             root        /                                                top#index
+                 search_employees GET    /employees/search(.:format)                      employees#search
+                        employees GET    /employees(.:format)                             employees#index
+                                  POST   /employees(.:format)                             employees#create
+                     new_employee GET    /employees/new(.:format)                         employees#new
+                    edit_employee GET    /employees/:id/edit(.:format)                    employees#edit
+                         employee GET    /employees/:id(.:format)                         employees#show
+                                  PUT    /employees/:id(.:format)                         employees#update
+                                  DELETE /employees/:id(.:format)                         employees#destroy
+       emplye_wreport_workreports GET    /workreports/emplye_wreport(.:format)            workreports#emplye_wreport
+               search_workreports GET    /workreports/search(.:format)                    workreports#search
+                      workreports GET    /workreports(.:format)                           workreports#index
+                                  POST   /workreports(.:format)                           workreports#create
+                   new_workreport GET    /workreports/new(.:format)                       workreports#new
+                  edit_workreport GET    /workreports/:id/edit(.:format)                  workreports#edit
+                       workreport GET    /workreports/:id(.:format)                       workreports#show
+                                  PUT    /workreports/:id(.:format)                       workreports#update
+                                  DELETE /workreports/:id(.:format)                       workreports#destroy
+                          session POST   /session(.:format)                               sessions#create
+                                  DELETE /session(.:format)                               sessions#destroy
+                       admin_root        /admin(.:format)                                 admin/top#index
+           search_admin_employees GET    /admin/employees/search(.:format)                admin/employees#search
+                  admin_employees GET    /admin/employees(.:format)                       admin/employees#index
+                                  POST   /admin/employees(.:format)                       admin/employees#create
+               new_admin_employee GET    /admin/employees/new(.:format)                   admin/employees#new
+              edit_admin_employee GET    /admin/employees/:id/edit(.:format)              admin/employees#edit
+                   admin_employee GET    /admin/employees/:id(.:format)                   admin/employees#show
+                                  PUT    /admin/employees/:id(.:format)                   admin/employees#update
+                                  DELETE /admin/employees/:id(.:format)                   admin/employees#destroy
+ emplye_wreport_admin_workreports GET    /admin/workreports/emplye_wreport(.:format)      admin/workreports#emplye_wreport
+wreport_sammary_admin_workreports GET    /admin/workreports/wreport_sammary(.:format)     admin/workreports#wreport_sammary
+         search_admin_workreports GET    /admin/workreports/search(.:format)              admin/workreports#search
+ emp_workreport_admin_workreports GET    /admin/workreports/emp_workreport(.:format)      admin/workreports#emp_workreport
+ set_empdsprange_admin_workreport GET    /admin/workreports/:id/set_empdsprange(.:format) admin/workreports#set_empdsprange
+                admin_workreports GET    /admin/workreports(.:format)                     admin/workreports#index
+                                  POST   /admin/workreports(.:format)                     admin/workreports#create
+             new_admin_workreport GET    /admin/workreports/new(.:format)                 admin/workreports#new
+            edit_admin_workreport GET    /admin/workreports/:id/edit(.:format)            admin/workreports#edit
+                 admin_workreport GET    /admin/workreports/:id(.:format)                 admin/workreports#show
+                                  PUT    /admin/workreports/:id(.:format)                 admin/workreports#update
+                                  DELETE /admin/workreports/:id(.:format)                 admin/workreports#destroy
+                admin_departments GET    /admin/departments(.:format)                     admin/departments#index
+                                  POST   /admin/departments(.:format)                     admin/departments#create
+             new_admin_department GET    /admin/departments/new(.:format)                 admin/departments#new
+            edit_admin_department GET    /admin/departments/:id/edit(.:format)            admin/departments#edit
+                 admin_department GET    /admin/departments/:id(.:format)                 admin/departments#show
+                                  PUT    /admin/departments/:id(.:format)                 admin/departments#update
+                                  DELETE /admin/departments/:id(.:format)                 admin/departments#destroy
+                     admin_states GET    /admin/states(.:format)                          admin/states#index
+                                  POST   /admin/states(.:format)                          admin/states#create
+                  new_admin_state GET    /admin/states/new(.:format)                      admin/states#new
+                 edit_admin_state GET    /admin/states/:id/edit(.:format)                 admin/states#edit
+                      admin_state GET    /admin/states/:id(.:format)                      admin/states#show
+                                  PUT    /admin/states/:id(.:format)                      admin/states#update
+                                  DELETE /admin/states/:id(.:format)                      admin/states#destroy
+                    admin_clients GET    /admin/clients(.:format)                         admin/clients#index
+                                  POST   /admin/clients(.:format)                         admin/clients#create
+                 new_admin_client GET    /admin/clients/new(.:format)                     admin/clients#new
+                edit_admin_client GET    /admin/clients/:id/edit(.:format)                admin/clients#edit
+                     admin_client GET    /admin/clients/:id(.:format)                     admin/clients#show
+                                  PUT    /admin/clients/:id(.:format)                     admin/clients#update
+                                  DELETE /admin/clients/:id(.:format)                     admin/clients#destroy
+                   admin_projects GET    /admin/projects(.:format)                        admin/projects#index
+                                  POST   /admin/projects(.:format)                        admin/projects#create
+                new_admin_project GET    /admin/projects/new(.:format)                    admin/projects#new
+               edit_admin_project GET    /admin/projects/:id/edit(.:format)               admin/projects#edit
+                    admin_project GET    /admin/projects/:id(.:format)                    admin/projects#show
+                                  PUT    /admin/projects/:id(.:format)                    admin/projects#update
+                                  DELETE /admin/projects/:id(.:format)                    admin/projects#destroy
+                  admin_jobgroups GET    /admin/jobgroups(.:format)                       admin/jobgroups#index
+                                  POST   /admin/jobgroups(.:format)                       admin/jobgroups#create
+               new_admin_jobgroup GET    /admin/jobgroups/new(.:format)                   admin/jobgroups#new
+              edit_admin_jobgroup GET    /admin/jobgroups/:id/edit(.:format)              admin/jobgroups#edit
+                   admin_jobgroup GET    /admin/jobgroups/:id(.:format)                   admin/jobgroups#show
+                                  PUT    /admin/jobgroups/:id(.:format)                   admin/jobgroups#update
+                                  DELETE /admin/jobgroups/:id(.:format)                   admin/jobgroups#destroy
+                   admin_jobitems GET    /admin/jobitems(.:format)                        admin/jobitems#index
+                                  POST   /admin/jobitems(.:format)                        admin/jobitems#create
+                new_admin_jobitem GET    /admin/jobitems/new(.:format)                    admin/jobitems#new
+               edit_admin_jobitem GET    /admin/jobitems/:id/edit(.:format)               admin/jobitems#edit
+                    admin_jobitem GET    /admin/jobitems/:id(.:format)                    admin/jobitems#show
+                                  PUT    /admin/jobitems/:id(.:format)                    admin/jobitems#update
+                                  DELETE /admin/jobitems/:id(.:format)                    admin/jobitems#destroy
+                  admin_jobplaces GET    /admin/jobplaces(.:format)                       admin/jobplaces#index
+                                  POST   /admin/jobplaces(.:format)                       admin/jobplaces#create
+               new_admin_jobplace GET    /admin/jobplaces/new(.:format)                   admin/jobplaces#new
+              edit_admin_jobplace GET    /admin/jobplaces/:id/edit(.:format)              admin/jobplaces#edit
+                   admin_jobplace GET    /admin/jobplaces/:id(.:format)                   admin/jobplaces#show
+                                  PUT    /admin/jobplaces/:id(.:format)                   admin/jobplaces#update
+                                  DELETE /admin/jobplaces/:id(.:format)                   admin/jobplaces#destroy
+                admin_addcomments GET    /admin/addcomments(.:format)                     admin/addcomments#index
+                                  POST   /admin/addcomments(.:format)                     admin/addcomments#create
+             new_admin_addcomment GET    /admin/addcomments/new(.:format)                 admin/addcomments#new
+            edit_admin_addcomment GET    /admin/addcomments/:id/edit(.:format)            admin/addcomments#edit
+                 admin_addcomment GET    /admin/addcomments/:id(.:format)                 admin/addcomments#show
+                                  PUT    /admin/addcomments/:id(.:format)                 admin/addcomments#update
+                                  DELETE /admin/addcomments/:id(.:format)                 admin/addcomments#destroy

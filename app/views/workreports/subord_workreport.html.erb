@@ -1,0 +1,73 @@
+<% @page_title = "部下勤務者勤務情報一覧" %>
+<h1><%= @page_title %></h1>
+
+
+<% #debugger %>
+
+<% if @leader then %>
+   <h2><%= @empleader.name %>さんの部下（<%= @employee_name %>）さんの勤務報告一覧表示</h2>
+<% else %>
+   <h2>（<%= @employee_name %>）さんの勤務報告一覧表示</h2>
+<% end %>
+
+
+
+
+<% if @leader then %>
+　　　<p><%= link_to "部下勤務報告の新規登録", new_workreport_path(id: @employee_id) %></p>
+
+　　　<p><%= link_to "対象部下勤務者選択画面へ", set_subordsprange_workreports_path(id: @employee_id) %></p>
+
+<% else %>
+
+     <p><%= link_to "勤務報告の新規登録", new_workreport_path(id: @employee_id) %></p>
+
+<% end %>
+
+
+
+
+
+<table>
+
+<tr>
+  <th>&nbsp;&nbsp;勤務日</th><th nowrap>&nbsp;&nbsp;プロジェクト名称</th>
+  <th nowrap>&nbsp;&nbsp;勤務場所</th>
+  <th nowrap>&nbsp;&nbsp;職能</th>
+  <th>&nbsp;&nbsp;作業内容</th>  <th nowrap>&nbsp;&nbsp;勤務開始</th>   
+  <th nowrap>&nbsp;&nbsp;終了時刻</th>
+  <th nowrap>&nbsp;&nbsp;勤務時間</th>
+　<th nowrap>&nbsp;&nbsp;備考</th>
+  <th nowrap>&nbsp;&nbsp;勤務者氏名</th>
+  <th colspan=2 align="center" nowrap >&nbsp;&nbsp; 操　　作 </th>
+</tr>
+
+<% @workreports.each do |workreport| %>
+
+<tr>
+  <td align="center" nowrap><%= workreport.workdate %></td>
+  <td align="center" nowrap><%= workreport.project.prjname %></td>
+  <td align="center" nowrap><%= workreport.jobplace.jobplacename %></td>
+  <td align="center" nowrap><%= workreport.grade.gradename %></td>
+  <td align="center" nowrap><%= workreport.jobitem.jobname %>  </td>
+
+
+  <td align="center" nowrap><%= workreport.timefrom.strftime('%H:%M') %>   ～  </td>
+  <td align="center" nowrap><%= workreport.timeto.strftime('%H:%M') %></td>
+
+<% #debugger %>
+
+  <td align="center" nowrap><%= number_with_precision((workreport.timeto - workreport.timefrom)/ 3600.0, :precision => 2) %></td>
+  <td align="center" nowrap><%= workreport.addcomment.comment %>　</td>
+  <td align="center" nowrap><%= workreport.employee.name %>　</td>
+
+
+
+  <td nowrap><%= link_to "勤務報告編集", edit_workreport_path(:id => workreport) %>　</td>
+  <!-- td nowrap><%= link_to "勤務報告編集", [:edit, workreport] %>　</td -->
+  <td nowrap><%= link_to "削除", [workreport], method: :delete,
+            confirm: "本当に削除しますか?"  %></td>
+</tr>
+<% end %>
+
+</table>

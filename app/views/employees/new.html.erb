@@ -1,0 +1,56 @@
+<% @page_title = "勤務者の登録" %>
+
+<h1><%= @page_title %></h1>
+
+<% debugger %>
+
+
+<%= form_for(@employee) do |f| %>
+
+<%= render "form", form: f %>
+
+
+<%
+=begin
+%>
+
+
+<% if @employee.errors.any? %>
+  <u1 class="error_summary">
+  <% @employee.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </u1>
+<% end %> 
+
+<h2><%= @employee.name %>さんの状況更新</h2>
+
+
+<table class="attr">
+<tr>
+  <th><%= f.label :state_id %></th>
+  <td><%= f.collection_select(:state_id, @states, :id, :stname) %></td>
+</tr>
+<tr>
+  <th><%= f.label :location %></th>
+  <td><%= f.text_field :location, { :size => 15, :maxlength => 30 } %></td>
+</tr>
+<tr>
+  <th><%= f.label :memo %></th>
+  <td><%= f.text_field :memo, { :size => 50, :maxlength => 100 } %></td>
+</tr>
+
+</table>
+
+<%
+=end
+%>
+
+
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
+

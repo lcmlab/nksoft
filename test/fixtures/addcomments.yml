@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  comment: 通常勤務
+
+two:
+  id: 2
+  comment: 残業
+
+three:
+  id: 3
+  comment: 深夜残業
+
+four:
+  id: 4
+  comment: 休日出勤

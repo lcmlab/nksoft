@@ -1,0 +1,20 @@
+<%= render "shared/errors", obj: @grade %>
+
+<table class="attr">
+  <tr>
+    <th><%= form.label :gradename %></th>
+    <td><%= form.text_field :gradename %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :unitpayment %></th>
+    <td><%= form.text_field :unitpayment %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :unitdemand %></th>
+    <td><%= form.text_field :unitdemand %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :holidayschg %></th>
+    <td><%= form.text_field :holidayschg %></td>
+  </tr>
+</table>
